@@ -3,7 +3,7 @@ import React from "react";
 
 const Photo = () => {
   return (
-    <div className="w-full flex justify-end">
+    <div className="">
       <Image src="/login.png" alt="" width={856} height={904} />
     </div>
   );
