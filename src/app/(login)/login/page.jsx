@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import SecondStep from "./components/secondStep";
-import FirstStep from "./components/firstStep";
+import FirstStep from "./components/FirstStep";
+import SecondStep from "./components/SecondStep";
 
-const page = () => {
+const Page = () => {
   const [changePage, setChangePage] = useState(0);
   const FormSteps = [FirstStep, SecondStep][changePage];
   const nextPage = () => {
@@ -21,4 +21,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
