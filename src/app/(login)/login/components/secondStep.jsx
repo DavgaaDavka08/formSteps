@@ -1,18 +1,12 @@
-import React from "react";
-
-const SecondStep = ({ backPage }) => {
+export default function Step2({ formData, back }) {
   return (
-    <div>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          backPage();
-        }}
-      >
-        back
-      </button>
+    <div className="w-[400px] flex flex-col gap-4">
+      <h1>Confirm Your Info</h1>
+
+      <p>Username: {formData.userName}</p>
+      <p>Email: {formData.email}</p>
+
+      <button onClick={back}>Back</button>
     </div>
   );
-};
-
-export default SecondStep;
+}
