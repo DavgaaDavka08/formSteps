@@ -12,6 +12,7 @@ export default function Page() {
     password: "",
     confirmPassword: "",
   });
+
   const [formErrors, setFormErrors] = useState({
     userName: "",
     email: "",
