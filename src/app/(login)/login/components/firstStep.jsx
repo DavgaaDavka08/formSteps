@@ -1,6 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
+
 ////sitgn-up
 export default function FirstPage({
   formData,
@@ -13,7 +13,7 @@ export default function FirstPage({
   const buttonClick = () => {
     let errors = {};
 
-    if (!formData.userName.trim().length) {
+    if (!formData.userName.trim()) {
       errors.userName = "Username is required";
     }
     if (!formData.email.includes("@")) {
@@ -74,9 +74,9 @@ export default function FirstPage({
         />
         <p className="text-red-500">{formErrors.confirmPassword}</p>
       </div>
-      <Button text="continue 1/3" onClick={buttonClick}>
+      <button text="continue 1/3" onClick={buttonClick}>
         Continue
-      </Button>
+      </button>
     </div>
   );
 }

@@ -23,6 +23,7 @@ export default function Page() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   const next = () => setStepPage(stepPage + 1);

@@ -1,54 +1,53 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+
+import { useRouter } from "next/navigation";
 //signin
 export default function SecondPage({
   formData,
   handleChange,
-  next,
   back,
   formErrors,
   setFormErrors,
-  setFormData,
 }) {
-  const loginClick = () => {
-    let errors = {};
+  const router = useRouter();
+  const addHandler = () => {
+    let Errors = {};
+
     if (formData.email !== formData.savedEmail) {
-      errors.email = "email not fount";
+      Errors.email = "Email is incorrect";
     }
+
     if (formData.password !== formData.savedPassword) {
-      errors.email = "password is wrong";
+      Errors.password = "Password is incorrect";
     }
-    setFormErrors(errors);
-    if (Object.keys(errors).length === 0) {
-      alert("successfull login");
-      next();
+
+    setFormErrors(Errors);
+
+    if (Object.keys(Errors).length === 0) {
+      router.push("/");
     }
   };
   return (
-    <div className="w-[400px] flex flex-col gap-4">
+    <div>
       <div>
-        <Label>Email</Label>
-        <Input
-          value={formData.email}
-          onChange={handleChange}
-          type={"text"}
-          placholder="email"
-        />
-        <p className="text-red-500">{formErrors.email}</p>
+        <Input name="email" onChange={handleChange} value={formData.email} />
+        <p className="text-red-400 text-sm">{formErrors.email}</p>
       </div>
       <div>
-        <Label>password</Label>
         <Input
+          name="password"
+          onChange={handleChange}
           value={formData.password}
-          onChange={handleChange}
-          type={"text"}
-          placholder="password"
         />
-        <p className="text-red-500">{formErrors.password}</p>
+        <p className="text-red-400">{formErrors.password}</p>
       </div>
-      <Button onClick={loginClick}>add</Button>
-      <Button onClick={back}>add</Button>
+      <div>
+        <Button onClick={addHandler}>Sign In</Button>
+        <Button variant="secondary" onClick={back}>
+          Back
+        </Button>
+      </div>
     </div>
   );
 }
